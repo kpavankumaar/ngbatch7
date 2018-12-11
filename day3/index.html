@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var arr = [30,20,10];
+		// var obj = {
+		// 	'firstname' : 'ravi',
+		// 	work: function(){
+		// 		console.log('can ride a bike');
+		// 	}
+		// }
+		// obj.lastname = 'srikanth';
+		// obj.work();
+		// // console.log()
+
+
+		// execution context
+		console.log(a);
+		var a = 10 ;
+		var b = a ;
+		// console.log(b);
+		// setTimeout(c,2000);
+		function c(){
+			console.log('inside the function c',b);
+		}
+		// c();
+		while(false){
+			console.log(10);
+		}
+		console.log('before set timeout');
+		setTimeout(c,0);
+		console.log('after set timeout');
+		
+	</script>
+</body>
+</html>
