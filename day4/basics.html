@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basics</title>
+</head>
+<body>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequa</p>
+	<button>hide/show</button>
+	<script type="text/javascript">
+		var btnEl = document.getElementsByTagName('button')[0];
+		var pEl = document.getElementsByTagName('p')[0];
+		btnEl.onclick = function(){
+			pEl.style.display = 'none';
+			}
+		function run(){
+			console.log('test');
+			console.log(this);
+		}
+		var obj = {
+			name:'ravi',
+			details: function(){
+				console.log(this);
+				function test(){
+					console.log(this);
+				}
+				test();
+			}
+		}
+		console.log(this);
+		obj.details();
+	</script>
+</body>
+</html>
