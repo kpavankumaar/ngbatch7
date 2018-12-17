@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript" src="arrays.js"></script>
+<script type="text/javascript">
+	var arr = [1,2,3,4];
+	arr.push(5);
+	arr.unshift(0);
+	// [0,1,2,3,4,5]
+	arr.splice(3,0,10);
+	var arr1 = ['a','b','c','d'];
+	var returedShiftVal = arr1.shift();
+	var returnedPopVal = arr1.pop();
+
+	var arr2 = [9,5,7,3,1,4,6,8,2,5,10];
+	arr2.sort(function(init,final){
+		return init - final
+	});
+	// var obj = {
+	// 	run:function(callback){
+	// 		for(var i= 0 ; i< 10 ; i++){
+	// 			var init= arr[i]
+	// 			var final = arr[i+1]
+	// 			callback(init,final)	
+	// 		}	
+	// 	}
+	// }
+	// obj.run(function(init,final){
+
+	// })
+	var arr4 = [1,2,3,4,5,6,7,{},function(){}];
+	var slicedArr = arr4.slice(2,6);
+	// for(var i =0 ; i < data.length; i = i+1){
+	// 	console.log(data[i].firstName);
+	// };
+	data.map(function(obj){
+		console.log(obj)
+	})
+
+	// var obj = {
+	// 	run:function(callback){
+	// 		for(var i= 0 ; i< data.length ; i++){
+	// 			callback(data[i]);
+	// 		}	
+	// 	}
+	// }
+	// obj.run(function(item){
+	// 	console.log(item);
+	// })
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
