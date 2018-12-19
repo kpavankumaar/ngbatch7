@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		html,body,ul,li,h3{
+			padding:0px;
+			margin:0px;
+		}
+		div{
+			width:500px;
+			margin:auto;
+			background-color: lightgrey;
+		}
+		ul li{
+			float:left;
+			list-style-type: none;
+			width:200px;
+			border:2px solid black;
+			padding:5px;
+		}
+		ul::after,ul::before{
+			content:'';
+			display:block;
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<div class='customer'>
+		<h3>Ravi kumar</h3>
+		<ul>
+			<li>product name</li>
+			<li>itemcost</li>
+		</ul>
+		<ul>
+			<li>Football</li>
+			<li>Rs 250</li>
+		</ul>
+		<ul>
+			<li>Trousers</li>
+			<li>Rs 1000</li>
+		</ul>
+		<ul>
+			<li>TotalCost</li>
+			<li>Rs 1250</li>
+		</ul>
+	</div>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript">
+	// create structure for loading customers details
+	// div , ul ,li
+	
+	function createCustomerView(){
+		console.log('inside createCustomerView');
+		
+	}
+	
+	// adding text inside the elements of h3 and li elements
+	// customerName.innerText = 'Krishna';
+	// productNameColumn.innerText = 'ProductName';
+	// itemCostColumn.innerText = 'ItemCost';
+	data.forEach(function(customerData){
+		var container;
+		var customerName;
+		var productListRow;
+		var productNameColumn;
+		var itemCostColumn;
+		
+		container = document.createElement('div');
+		customerName = document.createElement('h3');
+		productListRow = document.createElement('ul');
+		productNameColumn = document.createElement('li');
+		itemCostColumn = document.createElement('li');	
+		
+		customerName.innerText = customerData.firstName +' '+ customerData.lastName;
+		productNameColumn.innerText = 'ProductName';
+		itemCostColumn.innerText = 'ItemCost';
+		// building the tree structure
+		container.appendChild(customerName);
+		container.appendChild(productListRow);
+		productListRow.appendChild(productNameColumn);
+		productListRow.appendChild(itemCostColumn);
+		document.body.appendChild(container);
+	})
+
+	
+
+	
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

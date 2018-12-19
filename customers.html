@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		html,body,ul,li,h3{
+			padding:0px;
+			margin:0px;
+		}
+		div{
+			width:500px;
+			margin:auto;
+			background-color: lightgrey;
+		}
+		ul li{
+			float:left;
+			list-style-type: none;
+			width:200px;
+			border:2px solid black;
+			padding:5px;
+		}
+		ul::after,ul::before{
+			content:'';
+			display:block;
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h3>Ravi kumar</h3>
+		<ul>
+			<li>product name</li>
+			<li>itemcost</li>
+		</ul>
+		<ul>
+			<li>Football</li>
+			<li>Rs 250</li>
+		</ul>
+		<ul>
+			<li>Trousers</li>
+			<li>Rs 1000</li>
+		</ul>
+		<ul>
+			<li>TotalCost</li>
+			<li>Rs 1250</li>
+		</ul>
+	</div>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript">
+	console.log(data);
+	var arr = [1,2,4,5];
+	arr.push(6);
+	// arr.unshift(0);
+	// [1,2,4,5,6];
+	arr.splice(2,2,3,10,11);
+
+	arr.pop();// remove the lastItem of array 
+	arr.shift();// remove the firstItem of array
+	// [2,3,4,5]
+	arr.splice(2,2);// firstargument selecting the item using index number , secondargument is number of items that has to be deleted from array, from third argument values to be added into the array 
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
