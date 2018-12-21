@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- internal styling sheet -->
+	<style type="text/css">
+		html,body,h1,h2,h3,h4,h5,h6,p,div,ul,li,ol{
+			margin:0px;
+			padding:0px;
+		}
+		div.container{
+			width:74.21875%;/*950px;*/
+			box-sizing: border-box;
+			margin:auto;
+			border:2px solid black;
+		}
+
+		/*div.container div{
+			width:300px;
+			
+			margin-left:15px;
+		}*/
+		div.box{
+			width:300px;
+			margin-left:15px;
+		}
+		.box1{
+			background-color: sandybrown;
+			float:left;
+			/*opacity:0;*/
+
+		}
+		.box2{
+			background-color: lightgrey;
+			/*float:right;*/
+			float:left;
+		}
+		.box3{
+			background-color: lightblue;
+			/*float:right;*/
+			float:left;
+		}
+		h3{
+			background-color: lightgreen;
+			border:2px solid black;
+			padding:10px;
+		}
+		p{
+			padding:10px;
+		}
+		br{
+			clear:both;
+		}
+		@media screen and (max-width: 600px){
+			div.box{
+				width:100%;
+				float:none;
+			}
+		}
+
+	</style>
+	<!-- external syling sheet -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="box box1">
+			<!-- inline styling -->
+			<h3 style="background-color: lightpink;">heading</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="box box2">
+			<h3>heading 2</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="box box3">
+			<h3>heading 3</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<br>
+	</div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</body>
+</html>
