@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>objects</title>
+</head>
+<body>
+	<input type="text" name="username" placeholder="username">
+	<input type="password" name="password" placeholder="password" >
+	<button id="loginbtn">login</button>
+	<script type="text/javascript">
+		var loginBtn = document.getElementById('loginbtn');
+		loginBtn.onclick = function(){
+			var userName = document.getElementsByName('username')[0];
+			var password = document.getElementsByName('password')[0];
+			var userNameValue = userName.value;
+			var passwordValue = password.value;
+			var loginCredentials = new UserCredentials(userNameValue,passwordValue);
+			console.log(loginCredentials);
+			console.log(JSON.stringify(loginCredentials));
+
+		}
+		function Address(hno,street,city,state,pincode){
+				this.houseNo = hno;
+				this.street = street;
+				this.city = city;
+				this.state = state;
+				this.pincode = pincode;
+
+		}
+		function UserCredentials(username,pwd){
+				this.userName = username;
+				this.password = pwd;
+
+		}
+		UserCredentials('ravi','kumar');
+		var a = 10;
+		var b = a ;
+		b = 20;
+		console.log(a);
+		var obj = {
+			name: 'ravi'
+		}
+		var obj1 = obj;
+		obj1.name = 'pavan';
+		console.log(obj.name);
+		var emp = {};
+		var emp1 = {};
+		var num =10 ;
+		var num1 = 10;
+
+		var obj2 = Object.create(obj);
+		// obj2.name = 'krishna';
+
+	</script>
+</body>
+</html>

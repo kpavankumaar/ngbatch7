@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript">
+	var arr1 = [1,2,3,4,5]
+	var arr2 = arr1.map(function(item){
+		if(item > 3){
+			return item;
+		}
+		// item * 2;
+	});
+	function run(){
+		// console.log('test');
+		return 10;
+	}
+	var arr3 = arr1.forEach(function(a){
+		console.log(a);
+		return a;
+	})
+	var arr4 = arr1.filter(function(item){
+		if(item > 3){
+			return item;
+		}
+	});
+	console.log(arr2);
+	var obj ={
+		a : 10
+	}
+	function reduce(callback,param){
+		for(var i = 0 ; i < arr1.length; i = i+1){
+			var a = param || arr1[i];
+			var initvalue = param ? arr1[i]: arr1[i+1];
+			callback(a,initvalue,i,arr1);
+		}
+	}
+	var calc = arr1.reduce(function(acc,initvalue,currentIndex,arr){
+		console.log('accumulator',acc);
+		console.log('initial value',initvalue);
+		console.log('currentIndex',currentIndex)
+		console.log('complete arr', arr);
+		return acc = acc + initvalue;
+	},obj.a)
+</script>
+</body>
+</html>

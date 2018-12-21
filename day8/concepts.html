@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function multiply(a,b){
+			this.value = a*b;
+			console.log(a*b)
+		}
+		var obj = {}
+		var mulOf3 = multiply.bind(obj,3);
+		var mulOf4 = multiply.bind(obj,4);
+
+	</script>
+</body>
+</html>
