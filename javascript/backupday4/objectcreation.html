@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	console.log('global',this);
+	function Address(street, city, state, zip){
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+
+	}
+
+	function CustomerInformation(firstName, lastName, email,street, city, state, zip ){
+		console.log(firstName, lastName, email);
+		console.log('local',this);
+		this.first_Name = firstName;
+		this.last_Name = lastName;
+		this.email = email;
+		Address(street, city, state, zip);
+	}
+
+	function signUpMethod(firstName,lastName,email,street, city, state, zip){
+		// var firstName = document.getElementsByName('firstName')[0].value;
+		// var lastName =document.getElementsByName('lastName')[0].value;
+		// var email = document.getElementsByName('email')[0].value;
+		// user1 = new CustomerInformation(firstName,lastName,email);
+		var user = new CustomerInformation(firstName,lastName,email,street, city, state, zip);
+		// console.log(JSON.stringify(user1));
+		return user;
+	}
+
+	var user1 = signUpMethod('ravi','kumar','ravi@gmail.com','st no 11','hyd','Telangana',500032);
+	// var user2 = signUpMethod('krishna','k','krishna@gmail.com');
+</script>
+</body>
+</html>
