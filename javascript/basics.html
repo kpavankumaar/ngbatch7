@@ -4,46 +4,21 @@
 	<title></title>
 </head>
 <body>
-	content in html
+	Hello world 
 	<script type="text/javascript">
-		var referenceContent = "content in script tags";
-		var name = "ravi";
-		var friendlist = ['ravi',
-										  'pavan',
-									  	{
-									  		name:'radha',
-									  		office: 'office',
-									  		position: 'manager'
-											}
-										]
-		var table = {
-			nooflegs:4,
-			make:'wood'
-		}
-		console.log(10);
-		function runTheCode(){
-			console.log(10);
-		}
-		runTheCode();
-		if(false){
-			console.log('go to movie');
+		var message = 'Hello world ';
+		var friendlist = [{name : 'ravi', age: 25, city: 'hyderabad'},'pavan'];
+		console.log(friendlist[0].name);
+		if(''){
+			console.log(friendlist[0].name + ' lets go to movie');
 		}else{
-			console.log('read the books ');
-		}
-		var num = 10;
-		while(num){
-			console.log('i will come to class in time');
-			num = num - 1;
-		}
-		function goToParadise(mainItem,curry){
-			console.log(mainItem , curry);
+			console.log(friendlist[0].name + ' lets read books');
 		}
 
-		goToParadise('Roti','veg');
-		var num1 ;
-		console.log(num1);
-
-
+		function callFriendToAskForMovie(){
+			console.log(friendlist[0].name + ' lets go to movie');
+		}
+		callFriendToAskForMovie();
 	</script>
 </body>
 </html>

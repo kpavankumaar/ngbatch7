@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		console.log(name_1); // 1. undefined 
+
+		var name_1 = 'ravi'; // replaces undefined with "ravi"
+		var a = 10;
+		var b = a ;
+		function sum (){
+			console.log(a + b);
+			var a = 10 ;
+			var b = 20 ;
+			console.log(a + b);
+		}	
+		function c(){
+			b = 30 ;
+			console.log(b); // 3. 30 
+		}
+		function d(){
+			c();
+			var b = 15;
+			console.log(b); // 4. 15 
+		}
+		function e(){
+			console.log(b); // 2 . 10 
+			d();
+		}
+		e();
+	</script>
+</body>
+</html>
