@@ -8,33 +8,48 @@
 
 	console.log('global',this);
 	function Address(street, city, state, zip){
+		
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
-
+		// this.addressDetails = function(){
+		// 	console.log(this.street, this.city, this.state, this.zip);
+		// }	
 	}
+	Address.prototype.addressDetails = function(){
+			console.log(this.street, this.city, this.state, this.zip);
+		}	
 
-	function CustomerInformation(firstName, lastName, email,street, city, state, zip ){
+	function CustomerInformation(firstName, lastName, email, addressArr){
 		console.log(firstName, lastName, email);
 		console.log('local',this);
 		this.first_Name = firstName;
 		this.last_Name = lastName;
 		this.email = email;
-		Address(street, city, state, zip);
+		// this.address = {};
+		// this.customerDetails = function(){
+		// 	console.log(this.first_Name , this.last_Name, this.email);
+		// }
+		Address.apply(this,addressArr);
 	}
-
-	function signUpMethod(firstName,lastName,email,street, city, state, zip){
+	CustomerInformation.prototype = Object.create(Address.prototype);
+	CustomerInformation.prototype.customerDetails = function(){
+			console.log(this.first_Name , this.last_Name, this.email);
+	}
+	CustomerInformation.prototype.constructor = CustomerInformation;
+	var addressArr = ['st no 11','hyd','Telangana',500032]
+	function signUpMethod(firstName,lastName,email,addressArr){
 		// var firstName = document.getElementsByName('firstName')[0].value;
 		// var lastName =document.getElementsByName('lastName')[0].value;
 		// var email = document.getElementsByName('email')[0].value;
 		// user1 = new CustomerInformation(firstName,lastName,email);
-		var user = new CustomerInformation(firstName,lastName,email,street, city, state, zip);
+		var user = new CustomerInformation(firstName,lastName,email,addressArr);
 		// console.log(JSON.stringify(user1));
 		return user;
 	}
 
-	var user1 = signUpMethod('ravi','kumar','ravi@gmail.com','st no 11','hyd','Telangana',500032);
+	var user1 = signUpMethod('ravi','kumar','ravi@gmail.com',addressArr);
 	// var user2 = signUpMethod('krishna','k','krishna@gmail.com');
 </script>
 </body>
