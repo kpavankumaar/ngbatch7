@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>call bind and apply</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj ={};
+		function multiply(a,b){
+			this.result = a*b;
+			console.log(this.result);
+			console.log(arguments);
+		}
+		var multiplesOf3 = multiply.bind(obj,3);
+		var multiplesOf5 = multiply.bind(obj,5);
+		// closures 
+		function empDetail(name){
+			return function(lang){
+				console.log(name + " knows "+ lang);
+			}
+		}
+		var custDetails = empDetail("krishna");
+		custDetails("English");
+		function test(j){
+			setTimeout(function(){
+				console.log(j);
+			},1000);
+		}
+		for(var i = 0 ; i < 10 ; i = i+1){
+			test(i);
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
