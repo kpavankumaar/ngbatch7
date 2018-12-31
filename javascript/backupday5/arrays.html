@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays</title>
+</head>
+<body>
+<script type="text/javascript">
+	var arr = [1,2,3,4]
+	arr.push(5)
+	arr.unshift(0);
+	// arr = [0,1,2,3,4,5];
+	arr.splice(2,0,10);
+	var slicedArr = arr.slice(2,5);
+	var arr1 = [1,2,3,4,5,6]
+	arr1.pop();
+	arr1.shift();
+	var arr2 = [10,6,3,1,5,7,2,9,4,8]
+	arr2.sort(function(initvalue,finalvalue){
+		return initvalue - finalvalue;
+	});
+	var arr3 = [1,2,3,4] ;
+	arr3.forEach(function(data){
+		console.log(data * 2);
+	})
+	// var arr = arr3.map(function(res){
+	// 	return res* 2
+	// })
+	var arr5 = arr3.filter(function(res){
+		if (res > 2){
+			return res* 2	
+		}
+		
+	})
+	var arr4 = [5,6,7,8]
+	arr4.join()
+	// "5,6,7,8"
+	arr4.join('/')
+	// "5/6/7/8"
+
+
+</script>
+</body>
+</html>
