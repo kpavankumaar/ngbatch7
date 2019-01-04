@@ -2,8 +2,17 @@
 // install typescript with npm 
 // tsc to transpile the ts file to js file 
 interface ObjDefinition{
-    [key:string]:number|string;
-    
+    [key:string]:number|string|Array<string|number>;
+}
+interface ObjFn{
+    name: string;// required property
+    age : number;// required property
+    degree?: string; // optional property
+}
+let empDetails: ObjFn;
+empDetails = {
+    name:'krishna',
+    age: 35,
 }
 
 let num:number = 20;
@@ -15,7 +24,8 @@ const obj1:{name:any} = {
 }
 const obj:ObjDefinition = {
     name: 'ravi',
-    age: 55
+    age: 55,
+    degrees: []
 }
 obj.name = 'pavan';
 const friendList:any[] = ['ravi','krishna','radhe',10];
