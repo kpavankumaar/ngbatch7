@@ -8,13 +8,24 @@ interface ObjFn{
     name: string;// required property
     age : number;// required property
     degree?: string; // optional property
+    sum:(a:number,b:number) => number
+}
+interface FnDef{
+    ():number;
+}
+let fun: FnDef;
+fun = function(){
+    return 10;
 }
 let empDetails: ObjFn;
 empDetails = {
     name:'krishna',
     age: 35,
+    sum: function(num1,num2){
+        return num1 + num2;
+    }
 }
-
+empDetails.sum('ravi',10)
 let num:number = 20;
 const name_1:string = 'krishna';
 name_1 = 'ravi';
@@ -39,3 +50,9 @@ function sum(a,b:number):number{
 }
 sum(10,'20');
 
+interface ReadOnlyArray{
+    readonly [index:number]:number;
+}
+var arr:ReadonlyArray<number>;
+arr = [10,20,30,'red'];
+arr.push(30);
