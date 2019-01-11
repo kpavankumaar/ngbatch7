@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first class';
+  color = 'grey';
+  userEnteredValue:string;
+  recieveData(val){
+    console.log(val);
+  }
+  recieveDataFromInput(inputVal:string){
+    this.userEnteredValue = inputVal;
+  }
+  data = ['red','green','blue']
 }

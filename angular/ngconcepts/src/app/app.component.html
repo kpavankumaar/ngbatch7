@@ -1,20 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
+  <h1 [style.color] = 'color'>
     Welcome to {{ title }}!
+
   </h1>
+  <p (click) = 'recieveData($event.target.textContent)'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad quaerat animi alias debitis accusamus doloremque iusto! Voluptate voluptates laboriosam, veniam nemo blanditiis neque molestias accusantium hic aliquid quia omnis?</p>
+  <input type="text" (input) = 'recieveDataFromInput($event.target.value)'><br>
+  <i>username {{userEnteredValue}}</i><br>
+  <input type="text" [value] = '1*2'><br>
+  <input type="text" #username (blur)='recieveDataFromInput(username.value)' (keyup.enter) = 'recieveDataFromInput()'>
+  {{username.value}}
+  <select #selected (click) = 'recieveDataFromInput()'>
+    <option *ngFor = "let item of data">
+      {{item}}
+    </option>
+  </select>
+  <i>selected item {{selected.value}}</i>
   
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
