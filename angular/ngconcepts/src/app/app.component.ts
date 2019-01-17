@@ -8,7 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'first class';
   color = 'grey';
+  obj = {
+    color:'green'
+  };
   userEnteredValue:string;
+
   recieveData(val){
     console.log(val);
   }
