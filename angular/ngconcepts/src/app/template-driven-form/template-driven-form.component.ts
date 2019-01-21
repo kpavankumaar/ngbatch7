@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './template-driven-form.component.html',
   styleUrls: ['./template-driven-form.component.css']
 })
-export class TemplateDrivenFormComponent implements OnInit {
+export class TemplateDrivenFormComponent  {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

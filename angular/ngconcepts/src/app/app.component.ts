@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('username') username1:ElementRef;
   title = 'first class';
   color = 'grey';
   obj = {
     color:'green'
   };
+  username = 'john'
   userEnteredValue:string;
 
   recieveData(val){
@@ -18,6 +20,7 @@ export class AppComponent {
   }
   recieveDataFromInput(inputVal:string){
     this.userEnteredValue = inputVal;
+    console.log(this.username1.nativeElement.value);
   }
   data = ['red','green','blue']
 }
