@@ -2,17 +2,32 @@
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input class="form-control" 
+            name="emailName"
+            type="email" 
+            required
+            email
             ngModel
             #emailVar = "ngModel"
-            required
-            name="email"
-            type="email" 
             id="exampleInputEmail1"  
-            
-            [ngClass] = "{'is-invalid':true}"
+            [ngClass] = "{'is-invalid': emailVar.touched && emailVar.invalid}"
             placeholder="Enter email">
-
-            <p>{{emailVar.errors?.required}}</p>
+            <div class="invalid-feedback">
+                <!-- <span *ngIf = "userInfo.controls?.emailName.touched && userInfo.controls?.emailName.invalid"> -->
+                <span *ngIf = "emailVar.errors?.required">    
+                    Email is required
+                </span>
+                <span *ngIf = "emailVar.errors?.email">    
+                    Enter a valid email address
+                </span>
+            </div>
+            
+            <p>userInfo.controls?.email.valid : {{userInfo.control.controls.emailName.valid}}</p>
+            <p>userInfo.controls?.email.invalid : {{userInfo.control.controls.emailName.invalid}}</p>
+            <p>userInfo.controls?.email.touched: {{userInfo.control.controls.emailName.touched}}</p>
+            <p>userInfo.controls?.email.untouched: {{userInfo.control.controls.emailName.untouched}}</p>
+            <p>userInfo.controls?.email.pristine: {{userInfo.control.controls.emailName.pristine}}</p>
+            <p>userInfo.controls?.email.dirty : {{userInfo.control.controls.emailName.dirty}}</p>
+            
     </div>
     
     <div class="form-group">
@@ -27,5 +42,5 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled] = 'userInfo.control.invalid'>Submit</button>
 </form>

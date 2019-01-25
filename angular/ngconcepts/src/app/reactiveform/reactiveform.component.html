@@ -1,0 +1,83 @@
+<form  [formGroup]='customersForm' (ngSubmit) = 'formDetails()'>
+    <!-- firstname -->
+  <div class="form-group">
+      <label for="firstname">Firstname</label>
+      <input class="form-control" 
+          type="text" 
+          formControlName = 'firstName'
+          id="firstname" 
+          placeholder="Firstname">
+  </div>
+  <!-- lastname -->
+  <div class="form-group">
+      <label for="lastname">Lastname</label>
+      <input class="form-control" 
+          type="text" 
+          id="lastname" 
+          placeholder="lastname">
+  </div>
+  <!-- email -->
+  <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input class="form-control" 
+          type="email" 
+          required
+          email
+          id="exampleInputEmail1"  
+          [ngClass] = "{'is-invalid': false}"
+          placeholder="Enter email">
+          <div class="invalid-feedback">
+              <!-- <span *ngIf = "userInfo.controls?.emailName.touched && userInfo.controls?.emailName.invalid"> -->
+              <span *ngIf = "false">    
+                  Email is required
+              </span>
+              <span *ngIf = "false">    
+                  Enter a valid email address
+              </span>
+          </div>
+          
+          <!-- <p>userInfo.controls?.email.valid : {{userInfo.control.controls.emailName.valid}}</p>
+          <p>userInfo.controls?.email.invalid : {{userInfo.control.controls.emailName.invalid}}</p>
+          <p>userInfo.controls?.email.touched: {{userInfo.control.controls.emailName.touched}}</p>
+          <p>userInfo.controls?.email.untouched: {{userInfo.control.controls.emailName.untouched}}</p>
+          <p>userInfo.controls?.email.pristine: {{userInfo.control.controls.emailName.pristine}}</p>
+          <p>userInfo.controls?.email.dirty : {{userInfo.control.controls.emailName.dirty}}</p> -->
+          
+  </div>
+  <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Address Details</label>
+  </div>
+  <div>
+    <!-- street details -->
+    <div class="form-group">
+        <label for="street">Street</label>
+        <input class="form-control" 
+            type="text" 
+            id="street" 
+            placeholder="street">
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input class="form-control" 
+            type="text" 
+            id="city" 
+            placeholder="City">
+    </div>
+    <div class="form-group">
+        <label for="state">state</label>
+        <input class="form-control" 
+            type="text" 
+            id="state" 
+            placeholder="state">
+    </div>
+    <div class="form-group">
+        <label for="zipcode">Zipcode</label>
+        <input class="form-control" 
+            type="number" 
+            id="zipcode" 
+            placeholder="zipcode">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled] = 'userInfo.control.invalid'>Submit</button>
+</form>

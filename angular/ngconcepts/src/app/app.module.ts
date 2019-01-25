@@ -3,11 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TemplatedrivenformComponent } from './templatedrivenform/templatedrivenform.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+import { CustomersComponent } from './customers/customers.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemplatedrivenformComponent
+    TemplatedrivenformComponent,
+    ReactiveformComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule, FormsModule
