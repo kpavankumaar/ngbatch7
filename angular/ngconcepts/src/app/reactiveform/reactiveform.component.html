@@ -3,16 +3,28 @@
   <div class="form-group">
       <label for="firstname">Firstname</label>
       <input class="form-control" 
-          type="text" 
-          formControlName = 'firstName'
-          id="firstname" 
-          placeholder="Firstname">
+        type="text" 
+        required
+        minlength="3"
+        formControlName = 'firstName'
+        [ngClass] = "{'is-invalid': customersForm.controls?.firstName.invalid && customersForm.controls?.firstName.touched}"
+        id="firstname" 
+        placeholder="Firstname">
+      <div class="invalid-feedback">
+          <span *ngIf = "customersForm.controls?.firstName.errors?.required">    
+              firstName is required
+          </span>
+          <span *ngIf = "customersForm.controls?.firstName.errors?.minlength">
+              first name must have more than 3 characters
+          </span>
+      </div>
   </div>
   <!-- lastname -->
   <div class="form-group">
       <label for="lastname">Lastname</label>
       <input class="form-control" 
           type="text" 
+          formControlName = 'lastName'
           id="lastname" 
           placeholder="lastname">
   </div>
@@ -20,18 +32,19 @@
   <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input class="form-control" 
-          type="email" 
+          type="email"
+          formControlName ='emailName'
           required
           email
           id="exampleInputEmail1"  
-          [ngClass] = "{'is-invalid': false}"
+          [ngClass] = "{'is-invalid': customersForm.get('emailName').touched && customersForm.get('emailName').invalid}"
           placeholder="Enter email">
           <div class="invalid-feedback">
               <!-- <span *ngIf = "userInfo.controls?.emailName.touched && userInfo.controls?.emailName.invalid"> -->
-              <span *ngIf = "false">    
+              <span *ngIf = "customersForm.get('emailName').errors?.required">    
                   Email is required
               </span>
-              <span *ngIf = "false">    
+              <span *ngIf = "customersForm.get('emailName').errors?.email">    
                   Enter a valid email address
               </span>
           </div>
@@ -45,15 +58,21 @@
           
   </div>
   <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Address Details</label>
+      <input type="checkbox" 
+        class="form-check-input" 
+        formControlName = 'verify'
+          
+        >
+      <label class="form-check-label">Verify Address Details</label>
   </div>
-  <div>
+  <!-- address -->
+  <div *ngIf = 'showAddressDetails'>
     <!-- street details -->
     <div class="form-group">
         <label for="street">Street</label>
         <input class="form-control" 
-            type="text" 
+            type="text"
+            formControlName ='street'
             id="street" 
             placeholder="street">
     </div>
@@ -61,6 +80,7 @@
         <label for="city">City</label>
         <input class="form-control" 
             type="text" 
+            formControlName ='city'
             id="city" 
             placeholder="City">
     </div>
@@ -68,13 +88,15 @@
         <label for="state">state</label>
         <input class="form-control" 
             type="text" 
+            formControlName ='state'
             id="state" 
             placeholder="state">
     </div>
     <div class="form-group">
         <label for="zipcode">Zipcode</label>
         <input class="form-control" 
-            type="number" 
+            type="number"
+            formControlName ='zip' 
             id="zipcode" 
             placeholder="zipcode">
     </div>
