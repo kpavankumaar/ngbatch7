@@ -4,10 +4,9 @@
       <label for="firstname">Firstname</label>
       <input class="form-control" 
         type="text" 
-        required
-        minlength="3"
+        
         formControlName = 'firstName'
-        [ngClass] = "{'is-invalid': customersForm.controls?.firstName.invalid && customersForm.controls?.firstName.touched}"
+        [ngClass] = "{'is-invalid': customersForm.controls?.firstName.invalid && (customersForm.controls?.firstName.touched || customersForm.controls?.firstName.dirty) }"
         id="firstname" 
         placeholder="Firstname">
       <div class="invalid-feedback">
@@ -23,6 +22,8 @@
   <div class="form-group">
       <label for="lastname">Lastname</label>
       <input class="form-control" 
+          required
+          minlength="3"
           type="text" 
           formControlName = 'lastName'
           id="lastname" 
@@ -49,24 +50,34 @@
               </span>
           </div>
           
-          <!-- <p>userInfo.controls?.email.valid : {{userInfo.control.controls.emailName.valid}}</p>
-          <p>userInfo.controls?.email.invalid : {{userInfo.control.controls.emailName.invalid}}</p>
-          <p>userInfo.controls?.email.touched: {{userInfo.control.controls.emailName.touched}}</p>
-          <p>userInfo.controls?.email.untouched: {{userInfo.control.controls.emailName.untouched}}</p>
-          <p>userInfo.controls?.email.pristine: {{userInfo.control.controls.emailName.pristine}}</p>
-          <p>userInfo.controls?.email.dirty : {{userInfo.control.controls.emailName.dirty}}</p> -->
-          
   </div>
+  <!-- rating -->
+  <div class="form-group">
+    <label for="lastname">Rating</label>
+    <input class="form-control" 
+        type="number" 
+        min="0"
+        max="5"
+        formControlName = 'rating' 
+        [ngClass] = "{'is-invalid': customersForm.controls?.rating.invalid && (customersForm.controls?.rating.touched || customersForm.controls?.rating.dirty)}"
+        placeholder="rating">
+    <div class="invalid-feedback">
+      <span *ngIf = "customersForm.get('rating').errors?.range">    
+          value must be between 0 and 5
+      </span>
+    </div>    
+  </div>
+  
+  <!-- choose notification type -->
+    
   <div class="form-group form-check">
       <input type="checkbox" 
         class="form-check-input" 
-        formControlName = 'verify'
-          
-        >
+        formControlName = 'verify'>
       <label class="form-check-label">Verify Address Details</label>
   </div>
   <!-- address -->
-  <div *ngIf = 'showAddressDetails'>
+  <div *ngIf = 'showAddressDetails' >
     <!-- street details -->
     <div class="form-group">
         <label for="street">Street</label>
@@ -101,5 +112,5 @@
             placeholder="zipcode">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled] = 'userInfo.control.invalid'>Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled] = 'customersForm.control.invalid'>Submit</button>
 </form>
