@@ -1,5 +1,9 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 
+enum countryCode{
+  India = 91,
+  Australia = 61
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,5 +26,8 @@ export class AppComponent {
     this.userEnteredValue = inputVal;
     console.log(this.username1.nativeElement.value);
   }
-  data = ['red','green','blue']
+  data = countryCode;
+   
+    
+  
 }

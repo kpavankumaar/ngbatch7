@@ -36,15 +36,21 @@ export class ReactiveformComponent implements OnInit {
       firstName : new FormControl('Krishna',[Validators.required,Validators.minLength(3)]),
       lastName : new FormControl(''),
       emailName : new FormControl(''),
+      phone : new FormControl(''),
       rating : new FormControl('',this.verifyRating(0,5)),
+      notification : new FormControl('email'),
       verify:new FormControl(true),
       street : new FormControl(),
       city : new FormControl(),
       state : new FormControl(),
       zip : new FormControl(),
     });
-    // console.log(this.customersForm.get('verify'))
-    console.log(this.customersForm);
+    console.log(this.customersForm.get('verify'))
+    
     this.showAddressDetails = this.customersForm.get('verify').value;
+
+  }
+  ngOnChange(){
+    console.log(this.customersForm.get('notification').value);
   }
 }
