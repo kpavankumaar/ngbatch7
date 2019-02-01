@@ -23,11 +23,17 @@ export class ReactiveformComponent implements OnInit {
       return null;
     }
 }
-  // showOrHideAddress(){
-  //     var verify = this.customersForm.get('verify');
-  //     console.log(verify);
-  //     this.showAddressDetails = verify.value
-  // }
+  showOrHideAddress(){
+      var verify = this.customersForm.get('verify');
+      console.log('type of value ',typeof(verify.value) , verify.value);
+      if(verify.value){
+        this.showAddressDetails = false;
+      }else{
+        this.showAddressDetails = true;
+      }
+      
+  }
+  
   constructor() { }
   
   ngOnInit() {
@@ -46,11 +52,23 @@ export class ReactiveformComponent implements OnInit {
       zip : new FormControl(),
     });
     console.log(this.customersForm.get('verify'))
-    
     this.showAddressDetails = this.customersForm.get('verify').value;
+    console.log('show address details ',this.showAddressDetails);
+    
 
   }
   ngOnChange(){
+
+    
     console.log(this.customersForm.get('notification').value);
+  }
+  setNotification(chooseNotificationType:string){
+    var phoneControl = this.customersForm.get('phone');
+    if(chooseNotificationType === 'text'){
+      phoneControl.setValidators([Validators.required,Validators.minLength(10)]);
+    }else{
+      phoneControl.clearValidators()
+    }
+    phoneControl.updateValueAndValidity();
   }
 }

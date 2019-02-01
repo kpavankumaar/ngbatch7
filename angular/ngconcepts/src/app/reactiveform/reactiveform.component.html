@@ -4,7 +4,6 @@
       <label for="firstname">Firstname</label>
       <input class="form-control" 
         type="text" 
-        
         formControlName = 'firstName'
         [ngClass] = "{'is-invalid': customersForm.controls?.firstName.invalid && (customersForm.controls?.firstName.touched || customersForm.controls?.firstName.dirty) }"
         id="firstname" 
@@ -56,13 +55,22 @@
     <label>Phone</label>
     <input class="form-control" 
         type="number" 
-        maxlength="10"
+        [ngClass] = "{'is-invalid':(customersForm.get('phone').touched ||
+                         customersForm.get('phone').dirty) && 
+                         customersForm.get('phone').invalid }"
         formControlName = 'phone' 
         placeholder="phone">
     <div class="invalid-feedback">
-      <span *ngIf = "customersForm.get('phone').errors?.maxlength">    
-          enter a 10 digit number
+      <span *ngIf = "customersForm.get('phone').errors?.required">    
+          this field is needed
       </span>
+      <span *ngIf = "customersForm.get('phone').errors?.maxlength">    
+          max length is 10
+        </span>
+        <span *ngIf = "customersForm.get('phone').errors?.minlength">    
+          min length is 10
+        </span>
+    
     </div>    
   </div>
 
@@ -88,7 +96,7 @@
     <input type="radio" 
       class="form-check-input"
       value="email"
-      (click) = "setNotification()"
+      (click) = "setNotification('email')"
       formControlName = 'notification'>
     <label class="form-check-label">Email</label>
   </div>
@@ -96,7 +104,7 @@
     <input type="radio" 
       class="form-check-input"
       value="phone"
-      (click) = "setNotification()"
+      (click) = "setNotification('text')"
       formControlName = 'notification'>
     <label class="form-check-label">Phone</label>
   </div>
@@ -106,6 +114,7 @@
   <div class="form-group form-check">
       <input type="checkbox" 
         class="form-check-input" 
+        (click) = 'showOrHideAddress()'
         formControlName = 'verify'>
       <label class="form-check-label">Verify Address Details</label>
   </div>
