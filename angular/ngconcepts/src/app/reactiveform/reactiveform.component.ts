@@ -6,7 +6,14 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 //   }
 //   return null;
 // }
-
+function verifyEmail (c:AbstractControl):{[key:string]:boolean}| null{
+  
+    if(c.get('emailName').value === c.get('confirmEmail').value){
+      return null 
+    }
+    return {match:true}
+  
+}
 @Component({
   selector: 'app-reactiveform',
   templateUrl: './reactiveform.component.html',
@@ -41,7 +48,10 @@ export class ReactiveformComponent implements OnInit {
     this.customersForm = new FormGroup({
       firstName : new FormControl('Krishna',[Validators.required,Validators.minLength(3)]),
       lastName : new FormControl(''),
-      emailName : new FormControl(''),
+      emailGroup: new FormGroup({
+        emailName : new FormControl('',[Validators.required,Validators.email]),
+        confirmEmail: new FormControl('',[Validators.required,Validators.email]),
+      },verifyEmail),
       phone : new FormControl(''),
       rating : new FormControl('',this.verifyRating(0,5)),
       notification : new FormControl('email'),
@@ -54,18 +64,28 @@ export class ReactiveformComponent implements OnInit {
     console.log(this.customersForm.get('verify'))
     this.showAddressDetails = this.customersForm.get('verify').value;
     console.log('show address details ',this.showAddressDetails);
+    // this.customersForm.get('notification').valueChanges.subscribe((val)=>{
+    //   console.log('notification changed', val);
+    //   var phoneControl = this.customersForm.get('phone');
+    //   if(val === 'phone'){
+    //     phoneControl.setValidators([Validators.required,Validators.minLength(5)]);
+    //   }else{
+    //     phoneControl.clearValidators()
+    //   }
+    //   phoneControl.updateValueAndValidity();
+    // });
+    // compare emailName and confirmEmail
     
-
   }
   ngOnChange(){
 
     
     console.log(this.customersForm.get('notification').value);
   }
-  setNotification(chooseNotificationType:string){
+  setNotifications(chooseNotificationType:string){
     var phoneControl = this.customersForm.get('phone');
-    if(chooseNotificationType === 'text'){
-      phoneControl.setValidators([Validators.required,Validators.minLength(10)]);
+    if(chooseNotificationType === 'phone'){
+      phoneControl.setValidators([Validators.required,Validators.minLength(5)]);
     }else{
       phoneControl.clearValidators()
     }

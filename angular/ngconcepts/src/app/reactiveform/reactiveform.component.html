@@ -28,48 +28,72 @@
           id="lastname" 
           placeholder="lastname">
   </div>
-  <!-- email -->
-  <div class="form-group">
+  <div formGroupName = 'emailGroup'>
+    <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input class="form-control" 
           type="email"
           formControlName ='emailName'
-          required
-          email
           id="exampleInputEmail1"  
-          [ngClass] = "{'is-invalid': customersForm.get('emailName').touched && customersForm.get('emailName').invalid}"
+          [ngClass] = "{'is-invalid': (customersForm.get('emailGroup.emailName').touched ||
+                                      customersForm.get('emailGroup.emailName').dirty)
+                                       && customersForm.get('emailGroup.emailName').invalid}"
           placeholder="Enter email">
-          <div class="invalid-feedback">
-              <!-- <span *ngIf = "userInfo.controls?.emailName.touched && userInfo.controls?.emailName.invalid"> -->
-              <span *ngIf = "customersForm.get('emailName').errors?.required">    
-                  Email is required
-              </span>
-              <span *ngIf = "customersForm.get('emailName').errors?.email">    
-                  Enter a valid email address
-              </span>
-          </div>
+      <div class="invalid-feedback">
+        <!-- <span *ngIf = "userInfo.controls?.emailName.touched && userInfo.controls?.emailName.invalid"> -->
+        <span *ngIf = "customersForm.get('emailGroup.emailName').errors?.required">    
+            Email is required
+        </span>
+        <span *ngIf = "customersForm.get('emailGroup.emailName').errors?.email">    
+            Enter a valid email address
+        </span>
+      </div>
           
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleInputEmail1">Confirm Email address</label>
+      <input class="form-control" 
+          type="email"
+          formControlName ='confirmEmail'
+          id="confirmEmail"  
+          [ngClass] = "{'is-invalid': (customersForm.get('emailGroup.confirmEmail').touched ||
+                                      customersForm.get('emailGroup.confirmEmail').dirty) && 
+                                      customersForm.get('emailGroup.confirmEmail').invalid}"
+          placeholder="confirm your email">
+      <div class="invalid-feedback">
+          <!-- <span *ngIf = "userInfo.controls?.emailName.touched && userInfo.controls?.emailName.invalid"> -->
+          <span *ngIf = "customersForm.get('emailGroup.confirmEmail').errors?.required">    
+              Email is required
+          </span>
+          <span *ngIf = "customersForm.get('emailGroup.confirmEmail').errors?.email">    
+              Enter a valid email address
+          </span>
+      </div>
+    </div>
+    
+  </div>
+  <div *ngIf = "customersForm.get('emailGroup').errors?.match">
+    Email and confirm email values do not match
   </div>
   <!-- phone number -->
   <div class="form-group">
     <label>Phone</label>
     <input class="form-control" 
-        type="number" 
+         
         [ngClass] = "{'is-invalid':(customersForm.get('phone').touched ||
                          customersForm.get('phone').dirty) && 
                          customersForm.get('phone').invalid }"
         formControlName = 'phone' 
+        
         placeholder="phone">
     <div class="invalid-feedback">
       <span *ngIf = "customersForm.get('phone').errors?.required">    
           this field is needed
       </span>
-      <span *ngIf = "customersForm.get('phone').errors?.maxlength">    
-          max length is 10
-        </span>
-        <span *ngIf = "customersForm.get('phone').errors?.minlength">    
+      <span *ngIf = "customersForm.get('phone').errors?.minlength">    
           min length is 10
-        </span>
+      </span>
     
     </div>    
   </div>
@@ -96,7 +120,7 @@
     <input type="radio" 
       class="form-check-input"
       value="email"
-      (click) = "setNotification('email')"
+      (click) = "setNotifications('email')"
       formControlName = 'notification'>
     <label class="form-check-label">Email</label>
   </div>
@@ -104,7 +128,7 @@
     <input type="radio" 
       class="form-check-input"
       value="phone"
-      (click) = "setNotification('text')"
+      (click) = "setNotifications('phone')"
       formControlName = 'notification'>
     <label class="form-check-label">Phone</label>
   </div>
