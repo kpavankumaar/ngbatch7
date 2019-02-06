@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 // function verifyRating(c:AbstractControl):{[key:string]:boolean} | null{
 //   if(typeof(c.value)== 'number'  && c.value < 0 || c.value > 5){
 //    return {range:true}
@@ -21,7 +21,7 @@ function verifyEmail (c:AbstractControl):{[key:string]:boolean}| null{
 })
 export class ReactiveformComponent implements OnInit {
   showAddressDetails:boolean = true;
-  customersForm;
+  customersForm:FormGroup;
   verifyRating(min,max){
     return function (c:AbstractControl):{[key:string]:boolean} | null {
       if(typeof(c.value)== 'number'  && c.value < min || c.value > max){
@@ -41,26 +41,44 @@ export class ReactiveformComponent implements OnInit {
       
   }
   
-  constructor() { }
+  constructor( private fb:FormBuilder) { 
+    
+  }
   
   ngOnInit() {
     // root form group
-    this.customersForm = new FormGroup({
-      firstName : new FormControl('Krishna',[Validators.required,Validators.minLength(3)]),
-      lastName : new FormControl(''),
-      emailGroup: new FormGroup({
-        emailName : new FormControl('',[Validators.required,Validators.email]),
-        confirmEmail: new FormControl('',[Validators.required,Validators.email]),
+    this.customersForm = this.fb.group({
+      firstName : ['',[Validators.required,Validators.minLength(3)]],
+      lastName : [],
+      emailGroup: this.fb.group({
+        emailName : ['',[Validators.required,Validators.email]],
+        confirmEmail: ['',[Validators.required,Validators.email]],
       },verifyEmail),
-      phone : new FormControl(''),
-      rating : new FormControl('',this.verifyRating(0,5)),
-      notification : new FormControl('email'),
-      verify:new FormControl(true),
-      street : new FormControl(),
-      city : new FormControl(),
-      state : new FormControl(),
-      zip : new FormControl(),
-    });
+      phone : [''],
+      rating : ['',this.verifyRating(0,5)],
+      notification : ['email'],
+      verify:[true],
+      street : [],
+      city : [],
+      state : [],
+      zip : [],
+    })
+    // this.customersForm = new FormGroup({
+    //   firstName : new FormControl('Krishna',[Validators.required,Validators.minLength(3)]),
+    //   lastName : new FormControl(''),
+    //   emailGroup: new FormGroup({
+    //     emailName : new FormControl('',[Validators.required,Validators.email]),
+    //     confirmEmail: new FormControl('',[Validators.required,Validators.email]),
+    //   },verifyEmail),
+    //   phone : new FormControl(''),
+    //   rating : new FormControl('',this.verifyRating(0,5)),
+    //   notification : new FormControl('email'),
+    //   verify:new FormControl(true),
+    //   street : new FormControl(),
+    //   city : new FormControl(),
+    //   state : new FormControl(),
+    //   zip : new FormControl(),
+    // });
     console.log(this.customersForm.get('verify'))
     this.showAddressDetails = this.customersForm.get('verify').value;
     console.log('show address details ',this.showAddressDetails);
