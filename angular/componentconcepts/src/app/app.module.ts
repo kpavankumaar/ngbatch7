@@ -1,22 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
-import { CustomersComponent } from './customers/customers.component';
-import { OrdersComponent } from './orders/orders.component';
-import { RouterModule } from '@angular/router';
-import { route } from './route';
+import { RoutingModule } from './routingmodule';
+import { OrdersModule } from './orders/orders.module';
+import { CustomersModule } from './customers/customers.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CustomersComponent,
-    OrdersComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(route)
+    BrowserModule, 
+    // RoutingModule, //routing module
+    OrdersModule,
+    CustomersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
