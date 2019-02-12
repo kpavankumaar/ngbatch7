@@ -4,7 +4,8 @@ import { CommonModule } from "@angular/common";
 
 @NgModule({
     declarations:[OrdersComponent],
-    imports:[CommonModule]
+    imports:[CommonModule],
+    // exports:[OrdersComponent]
 })
 export class OrdersModule {
 

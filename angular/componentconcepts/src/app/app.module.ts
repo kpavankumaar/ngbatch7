@@ -8,11 +8,11 @@ import { CustomersModule } from './customers/customers.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent 
   ],
   imports: [
     BrowserModule, 
-    // RoutingModule, //routing module
+    RoutingModule, //routing module
     OrdersModule,
     CustomersModule
   ],
