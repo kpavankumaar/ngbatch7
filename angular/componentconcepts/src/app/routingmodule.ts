@@ -5,8 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 const route:Routes = [
-    {path:'customers',component:CustomersComponent},
-    {path:'orders',component:OrdersComponent}
+    {path:'customers',loadChildren:"./customers/customers.module#CustomersModule"},
+    {path:'orders',loadChildren:"./orders/orders.module#OrdersModule"}
 ]
 
 @NgModule({

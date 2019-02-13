@@ -13,8 +13,8 @@ import { CustomersModule } from './customers/customers.module';
   imports: [
     BrowserModule, 
     RoutingModule, //routing module
-    OrdersModule,
-    CustomersModule
+    // OrdersModule,
+    // CustomersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

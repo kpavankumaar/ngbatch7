@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, FormBuilder } from '@angular/forms';
+import { CustomersComponent } from '../customers/customers.component';
 // function verifyRating(c:AbstractControl):{[key:string]:boolean} | null{
 //   if(typeof(c.value)== 'number'  && c.value < 0 || c.value > 5){
 //    return {range:true}
@@ -17,7 +18,7 @@ function verifyEmail (c:AbstractControl):{[key:string]:boolean}| null{
 @Component({
   selector: 'app-reactiveform',
   templateUrl: './reactiveform.component.html',
-  styleUrls: ['./reactiveform.component.css']
+  styleUrls: ['./reactiveform.component.css'],
 })
 export class ReactiveformComponent implements OnInit {
   showAddressDetails:boolean = true;
@@ -40,7 +41,13 @@ export class ReactiveformComponent implements OnInit {
       }
       
   }
-  
+  @ViewChild(CustomersComponent) custComponent;
+  ngAfterViewInit(){
+    setTimeout(function( ){
+      console.log(this.custComponent);
+    },2000)
+      
+  }
   constructor( private fb:FormBuilder) { 
     
   }
