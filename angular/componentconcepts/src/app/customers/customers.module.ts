@@ -11,7 +11,8 @@ import { RoutingModule } from "./routing.module";
         CustomersComponent, 
         CustomersCardComponent, 
         CustomersGridComponent],
-    exports:[CustomersComponent]
+    
+        
 })
 export class CustomersModule{
     constructor(){
