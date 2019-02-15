@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <a (click) = "loadCardView()"> Card View</a>
+      <a (click) = "loadGridView()"> List View</a>
+    </div>
+  </div>
+  <div *ngIf="cardViewStatus" >
+    <app-customers-card></app-customers-card>
+  </div>
+  <div *ngIf="gridViewStatus" >
+    <app-customers-grid></app-customers-grid>
+  </div>
+</div>
