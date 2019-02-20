@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  showCustomersPage;
   recieveInfoFromChildComp(val){
     console.log(val);
+    this.showCustomersPage = val;
   }
 }

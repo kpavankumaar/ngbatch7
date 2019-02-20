@@ -17,7 +17,9 @@ export class CustomersComponent implements OnInit {
     this.gridViewStatus = true;
   }
 
-  constructor() { }
+  constructor() { 
+    console.log('customers component ');
+  }
 
   ngOnInit() {
   }

@@ -10,4 +10,9 @@ import { CustomersRoutingModule } from './customers-routing.module';
   ],
   declarations: [CustomersRoutingModule.component]
 })
-export class CustomersModule { }
+export class CustomersModule { 
+  constructor(){
+    console.log('customer module contructor');
+  }
+}
+
