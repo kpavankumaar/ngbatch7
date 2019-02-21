@@ -12,4 +12,7 @@ export class AppComponent {
     console.log(val);
     this.showCustomersPage = val;
   }
+  constructor(private data:DataService){
+
+  }
 }

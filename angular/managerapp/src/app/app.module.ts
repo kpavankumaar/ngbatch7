@@ -16,7 +16,7 @@ import { CoreModule } from './core/core.module';
     CoreModule, 
     AppRoutingModule, 
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

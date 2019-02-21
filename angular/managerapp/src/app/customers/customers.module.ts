@@ -8,7 +8,9 @@ import { CustomersRoutingModule } from './customers-routing.module';
     CommonModule,
     CustomersRoutingModule
   ],
-  declarations: [CustomersRoutingModule.component]
+  declarations: [CustomersRoutingModule.component],
+  providers:[]
+
 })
 export class CustomersModule { 
   constructor(){
