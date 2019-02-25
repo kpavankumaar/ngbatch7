@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './approuting.module';
 import { CoreModule } from './core/core.module';
+import { DataService } from './core/services/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,6 +15,7 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CoreModule, 
     AppRoutingModule, 
   ],
