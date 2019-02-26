@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <a (click) = "loadCardView()"> Card View</a>
-      <a (click) = "loadGridView()"> List View</a>
+      <!-- <a (click) = "loadCardView()"> Card View</a>
+      <a (click) = "loadGridView()"> List View</a> -->
+      <a routerLink = 'card'> Card View</a>
+      <a routerLink = 'grid'> List View</a>
     </div>
   </div>
   <div *ngIf="cardViewStatus" >
-    <app-customers-card></app-customers-card>
+    <app-customers-card [customersData] = "customers"></app-customers-card>
   </div>
   <div *ngIf="gridViewStatus" >
     <app-customers-grid></app-customers-grid>

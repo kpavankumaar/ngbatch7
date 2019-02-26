@@ -5,7 +5,7 @@ import { DataService } from '../core/services/data.service';
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css'],
-  providers:[DataService]
+  providers:[]
 })
 export class CustomersComponent implements OnInit {
   customers;

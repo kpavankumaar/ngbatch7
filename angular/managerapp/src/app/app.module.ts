@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule, 
     AppRoutingModule, 
   ],
-  providers: [DataService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

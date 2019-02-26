@@ -10,6 +10,6 @@ import { DataService } from './services/data.service';
   ],
   declarations: [NavbarComponent],
   exports:[NavbarComponent],
-  providers:[]
+  providers:[DataService]
 })
 export class CoreModule { }
