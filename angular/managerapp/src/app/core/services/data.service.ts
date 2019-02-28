@@ -15,5 +15,8 @@ export class DataService{
         return this.http.get('/api/customers')
 
     }
+    getCustomer(id:number):Observable<any>{
+        return this.http.get(`api/customers/${id}`);
+    }
 
 }

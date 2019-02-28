@@ -1,11 +1,12 @@
-<div class="col-md-4">
+<div class="col-md-4" *ngFor = "let cust of customersData">
   <div class="card" >
     <div class="card-header">
-      {{cust.firstName}} {{cust.lastName}}
+      <a [routerLink] = "['/customers',cust.id,'details']">   {{cust.firstName}} {{cust.lastName}}</a>
+      <a [routerLink]="['/customers',cust.id,'edit']">edit</a>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{cust.city}}</h5>
-      <a href="#" class="btn btn-primary">View Order</a>
+      <a routerLink = "['/customers',cust.id,'orders']" class="btn btn-primary" >View Order</a>
     </div>
   </div>
 </div>
