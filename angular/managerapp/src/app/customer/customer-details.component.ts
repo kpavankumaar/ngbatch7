@@ -13,14 +13,16 @@ export class CustomerDetailsComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.route);
+    console.log(this.dataService);
+    let id:number
     this.route.parent.params.subscribe(function(params){
       console.log(params);
-      this.dataService.getCustomer(params['id']).subscribe(function(cust){
-        this.customer = cust;
-        console.log(cust);
-        console.log(this.customer);
-      })
-
+      id = params['id'];
+    })
+    this.dataService.getCustomer(id).subscribe((cust) =>{
+      this.customer = cust;
+      console.log('cust data',cust);
+      console.log(this.customer);
     })
   }
 
