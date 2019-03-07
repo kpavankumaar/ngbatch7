@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,18 +9,24 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   @Output() eventCommFromNavTemp = new EventEmitter();
+  loginOrLogoutProp = 'Login'
   loadCustomersPage(){
     this.eventCommFromNavTemp.emit(true)
   }
-  
-  
-  
-  
-  
-  constructor() { }
+  constructor(private router:Router, private authService:AuthService) {
+
+  }
 
   ngOnInit() {
   }
-  
+  loginOrLogout(){
+    if(this.authService.loggedIn){
+      this.loginOrLogoutProp = 'Logout';
+    }else{
+      this.loginOrLogoutProp = 'Login';
+      this.router.navigate(['/login'])
+    }
+    
+  }
 
 }

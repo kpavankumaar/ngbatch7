@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CustomerRoutingModule } from './customer-routing.module';
+import { CanActivateGaurd } from "./CanActivateGaurd";
 
 
 @NgModule({
@@ -9,6 +10,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
     CommonModule,
     CustomerRoutingModule
   ],
-  declarations: [CustomerRoutingModule.component]
+  declarations: [CustomerRoutingModule.component],
+  providers:[CanActivateGaurd]
 })
 export class CustomerModule { }

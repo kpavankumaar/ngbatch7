@@ -19,4 +19,8 @@ export class DataService{
         return this.http.get('/api/customers'+'/'+id);
     }
 
+    login(loginCredentials){
+        return this.http.post('/api/auth/login',loginCredentials);
+    }
+    
 }
