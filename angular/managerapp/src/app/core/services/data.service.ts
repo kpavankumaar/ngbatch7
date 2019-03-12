@@ -20,7 +20,9 @@ export class DataService{
     }
 
     login(loginCredentials){
-        return this.http.post('/api/auth/login',loginCredentials);
+        return this.http.post('/api/auth/login',loginCredentials).pipe(
+            map((resp)=> resp)
+        );
     }
     
 }

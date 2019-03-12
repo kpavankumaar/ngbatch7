@@ -2,38 +2,49 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/services/data.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthService } from '../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginOrLogoutProp = 'Login';
+  authenticationResponse:boolean;
   errorMessage;
-  constructor( private dataService: DataService, public formBuilder: FormBuilder, private authService:AuthService) { }
+  constructor( private dataService: DataService, private authService:AuthService, public formBuilder: FormBuilder, private router:Router) { }
 
   ngOnInit() {
-    console.log('ng on init');
+    console.log('ng on init' , this.authService.loggedIn);
     this.buildForm();
   }
+  
   buildForm() {
     this.loginForm = this.formBuilder.group({
         email:      ['', [ Validators.required]],
         password:   ['', [ Validators.required]]
     });
   }
+  
   submit({ value, valid }: { value, valid: boolean }) {
-    this.dataService.login(value).subscribe(function(resp){
+    console.log('auth service',this.authService.loggedIn);
+   
+    this.dataService.login(value).subscribe((resp) => {
       if(resp){
         this.authService.loggedIn = true;
-        this.loginOrLogoutProp = 'Logout';
+        this.router.navigate(['./customers'])
       }else{
         this.authService.loggedIn = false;
-        this.loginOrLogoutProp = 'Login';
+        
       }
+      console.log('resp',resp);
+      
     })
+    console.log('authenticationResponse', this.authenticationResponse);
+    
     // console.log(this.authService.redirectUrl);
     
     // this.dataService.login(value).subscribe((status: boolean) => {
@@ -56,4 +67,5 @@ export class LoginComponent implements OnInit {
     //         }
     //     })
     };
+
 }

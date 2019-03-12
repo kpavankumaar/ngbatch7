@@ -9,7 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   @Output() eventCommFromNavTemp = new EventEmitter();
-  loginOrLogoutProp = 'Login'
+  toggleLoginout = 'Login'
+  
   loadCustomersPage(){
     this.eventCommFromNavTemp.emit(true)
   }
@@ -18,14 +19,21 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-  loginOrLogout(){
     if(this.authService.loggedIn){
-      this.loginOrLogoutProp = 'Logout';
+      this.toggleLoginout = 'Logout';
     }else{
-      this.loginOrLogoutProp = 'Login';
+      this.toggleLoginout = 'Login';
       this.router.navigate(['/login'])
     }
+  }
+  loginOrLogout(){
+    console.log(this.authService.loggedIn);
+    // if(this.authService.loggedIn){
+    //   this.toggleLoginout = 'Logout';
+    // }else{
+    //   this.toggleLoginout = 'Login';
+    //   this.router.navigate(['/login'])
+    // }
     
   }
 

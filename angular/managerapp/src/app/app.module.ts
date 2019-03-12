@@ -7,6 +7,7 @@ import { AppRoutingModule } from './approuting.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
+import { AuthService } from './core/services/auth.service';
 
 
 @NgModule({
@@ -17,10 +18,10 @@ import { LoginModule } from './login/login.module';
     BrowserModule,
     LoginModule,
     HttpClientModule,
-    CoreModule, 
-    AppRoutingModule, 
+    CoreModule,
+    AppRoutingModule,
   ],
-  
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
