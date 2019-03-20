@@ -1,3 +1,7 @@
-<app-navbar [data]='data'></app-navbar>
-<app-customers></app-customers>
-<app-orders></app-orders>
+<app-navbar [data]='data' (eventEmitter)='dataFromNavBar($event)'></app-navbar>
+<div *ngIf = 'validation'>
+    <app-customers></app-customers>
+</div>
+<div *ngIf = 'validation'>
+    <app-orders></app-orders>
+</div>

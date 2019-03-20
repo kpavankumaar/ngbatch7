@@ -16,6 +16,10 @@ export class CustomersComponent implements OnInit,OnChanges {
   ngOnInit() {
     console.log('printing the data from CustomersComponent  ngOnInit');
   }
-  
-
+  ngDoCheck(){
+    console.log('printing the data from CustomersComponent ngDoCheck');
+  }
+  ngOnDestroy(){
+    console.log('printing the data from CustomersComponent ngOnDestroy');
+  }
 }

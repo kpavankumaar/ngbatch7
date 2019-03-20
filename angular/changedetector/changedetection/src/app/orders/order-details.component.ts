@@ -16,5 +16,8 @@ export class OrderDetailsComponent implements OnInit {
   ngOnInit() {
     console.log('printing the data from  OrderDetailsComponent ngOnInit');
   }
+  ngDoCheck(){
+    console.log('printing the data from ordersdetailscomponent ngDoCheck');
+  }
 
 }
