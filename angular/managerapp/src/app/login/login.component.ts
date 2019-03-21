@@ -35,7 +35,13 @@ export class LoginComponent implements OnInit {
     this.dataService.login(value).subscribe((resp) => {
       if(resp){
         this.authService.loggedIn = true;
-        this.router.navigate(['./customers'])
+        if(this.authService.redirectUrl){
+          this.router.navigate([this.authService.redirectUrl]);
+          this.authService.redirectUrl = '';
+        }else{
+          this.router.navigate(['./customers'])
+        }
+        
       }else{
         this.authService.loggedIn = false;
         
