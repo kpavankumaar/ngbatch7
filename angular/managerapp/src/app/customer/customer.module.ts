@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CanActivateGaurd } from "./CanActivateGaurd";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    FormsModule
   ],
   declarations: [CustomerRoutingModule.component],
   providers:[CanActivateGaurd]
