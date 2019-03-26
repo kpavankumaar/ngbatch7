@@ -21,7 +21,13 @@ export class DataService{
         return this.http.delete('/api/customers/'+id);
     }
     updateCustomer(customer):Observable<any>{
+        console.log(customer);
         return this.http.put('/api/customers/'+customer.id ,customer).pipe(
+            map((res)=> res)
+        )
+    }
+    getStates():Observable<any>{
+        return this.http.get('api/states').pipe(
             map((res)=> res)
         )
     }
