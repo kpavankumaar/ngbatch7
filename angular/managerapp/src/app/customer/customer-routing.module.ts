@@ -5,6 +5,7 @@ import { CustomerDetailsComponent } from './customer-details.component';
 import { CustomerOrdersComponent } from './customer-orders.component';
 import { CustomerEditComponent } from './customer-edit.component';
 import { CanActivateGaurd } from "./CanActivateGaurd";
+import { CanDeactivateGaurd } from './CanDeactivateGaurd';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       {path:'orders',component:CustomerOrdersComponent},
       {path:'edit',
         component:CustomerEditComponent,
-        canActivate:[CanActivateGaurd]
+        canActivate:[CanActivateGaurd],
+        canDeactivate:[CanDeactivateGaurd]
       }
     ]
   },

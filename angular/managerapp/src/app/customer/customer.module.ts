@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CanActivateGaurd } from "./CanActivateGaurd";
 import { FormsModule } from '@angular/forms';
+import { CanDeactivateGaurd } from './CanDeactivateGaurd';
 
 
 @NgModule({
@@ -13,6 +14,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   declarations: [CustomerRoutingModule.component],
-  providers:[CanActivateGaurd]
+  providers:[CanActivateGaurd,CanDeactivateGaurd]
 })
 export class CustomerModule { }

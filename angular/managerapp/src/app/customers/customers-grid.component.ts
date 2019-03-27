@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-customers-grid',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersGridComponent implements OnInit {
 
+  @Input() customers = [];
+
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  sort(prop: string) {
+    console.log(prop);
+    // this.sorterService.sort(this.customers, prop);
   }
 
 }
