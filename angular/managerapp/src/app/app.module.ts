@@ -8,11 +8,12 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
 import { AuthService } from './core/services/auth.service';
+import { SortByDirective } from './shared/directives/sortby.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,SortByDirective
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,16 @@
-<div class="col-md-4" *ngFor = "let cust of customersData">
-  <div class="card" >
-    <div class="card-header">
-      <a [routerLink] = "['/customers',cust.id,'details']">   {{cust.firstName}} {{cust.lastName}}</a>
-      <a [routerLink]="['/customers',cust.id,'edit']">edit</a>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-2" *ngFor = "let cust of customersData">
+      <div class="card" >
+        <div class="card-header">
+          <a [routerLink] = "['/customers',cust.id,'details']">   {{cust.firstName}} {{cust.lastName}}</a>
+          <a [routerLink]="['/customers',cust.id,'edit']">edit</a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{cust.city}}</h5>
+          <a routerLink = "['/customers',cust.id,'orders']" class="btn btn-primary" >View Order</a>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">{{cust.city}}</h5>
-      <a routerLink = "['/customers',cust.id,'orders']" class="btn btn-primary" >View Order</a>
     </div>
-  </div>
 </div>
